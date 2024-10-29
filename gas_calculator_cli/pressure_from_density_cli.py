@@ -17,6 +17,14 @@ class PressureFromDensityCli:
         """
         print(args)
 
+        p1 = args['p1']
+        d1 = args['d1']
+        d2 = args['d2']
+
+        p2 = GasLaws.pressure_from_density(p1, d1, d2, rsh)
+
+        print(f'P1 {p1} P2 {p2} D1 {d1} D2 {d2} RSH {rsh}')
+
     def _add_parser_arguments(self):
         """
         p1, d1, d2, rsh

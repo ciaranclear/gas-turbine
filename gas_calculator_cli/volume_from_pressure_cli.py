@@ -15,7 +15,15 @@ class VolumeFromPressureCli:
         """
 
         """
-        print(args)
+        if args['command'] == 'volume_from_pressure':
+            v1 = args['v1']
+            p1 = args['p1']
+            p2 = args['p2']
+            rsh = args['rsh']
+
+            v2 = GasLaws.volume_from_pressure(v1, p1, p2, rsh)
+
+            print(f'V1 {v1} V2 {v2} P1 {p1} P2 {p2} RSH {rsh}')
 
     def _add_parser_arguments(self):
         """

@@ -15,7 +15,14 @@ class DensityFromVolumeCli:
         """
 
         """
-        print(args)
+        d1 = args['d1']
+        v1 = args['v1']
+        v2 = args['v2']
+        rsh = args['rsh']
+
+        d2 = GasLaws.density_from_volume(d1, v1, v2, rsh)
+
+        print(f'D1 {d1} D2 {d2} T1 {t1} T2 {t2} RSH {rsh}')
 
     def _add_parser_arguments(self):
         """

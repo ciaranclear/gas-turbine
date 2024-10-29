@@ -15,7 +15,6 @@ class TemperatureFromPressureCli:
         """
 
         """
-        print(args)
         if args['command'] == 'temperature_from_pressure':
             t1 = args['t1']
             p1 = args['p1']

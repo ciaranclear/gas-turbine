@@ -17,6 +17,14 @@ class PressureFromTemperatureCli:
         """
         print(args)
 
+        p1 = args['p1']
+        t1 = args['t1']
+        t2 = args['t2']
+
+        p2 = GasLaws.pressure_from_temperature(p1, t1, t2, rsh)
+
+        print(f'P1 {p1} P2 {p2} T1 {t1} T2 {t2} RSH {rsh}')
+
     def _add_parser_arguments(self):
         """
         p1, t1, t2, rsh

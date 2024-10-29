@@ -15,7 +15,14 @@ class TemperatureFromDensityCli:
         """
 
         """
-        print(args)
+        t1 = args['t1']
+        d1 = args['d1']
+        d2 = args['d2']
+        rsh = args['rsh']
+
+        t2 = GasLaws.temperature_from_density(t1, d1, d2, rsh)
+
+        print(f'T1 {t1} T2 {t2} D1 {d1} D2 {d2} RSH {rsh}')
 
     def _add_parser_arguments(self):
         """

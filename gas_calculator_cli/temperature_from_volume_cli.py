@@ -15,7 +15,15 @@ class TemperatureFromVolumeCli:
         """
 
         """
-        print(args)
+        if args['command'] == 'temperature_from_volume':
+            t1 = args['t1']
+            v1 = args['v1']
+            v2 = args['v2']
+            rsh = args['rsh']
+
+            t2 = GasLaws.temperature_from_volume(t1, v1, v2, rsh)
+
+            print(f'T1 {t1} T2 {t2} V1 {v1} V2 {v2} RSH {rsh}')
 
     def _add_parser_arguments(self):
         """
