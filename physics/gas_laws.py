@@ -163,11 +163,87 @@ class GasLaws:
         """
         pass
 
-    def flow_change_of_area(a1, a2, v1, ps1, ts1, ds1, rsh):
+    def flow_change_of_area(a1, a2, v1, ps1, d1, rsh):
         """
 
         """
-        pass
+        def _flow_change_of_area(a1, a2, v1, x, ps1, d1, rsh):
+            """
+
+            """
+            print(f'a1 {a1} a2 {a2} v1 {v1}')
+
+            mf1 = v1 * d1 * a1
+
+            vf1 = v1 * a1
+
+            ek1 = 0.5 * mf1 * (v1**2)
+
+            vf2 = x * a2
+
+            d2 = mf1 / vf2
+
+            mf2 = x * d2 * a2
+
+            ek2 = 0.5 * mf2 * (x**2)
+
+            ps2 = ps1 * (vf1/vf2)**rsh
+
+            w = ((ps2 * vf2) - (ps1 * vf1)) / (1-rsh)
+            #w = ((ps1 * vf1) - (ps2 - vf2)) / (1-rsh)
+
+            v2 = ((2 * (ek1 - w))/ mf2)**0.5
+
+            tp1 = GasLaws.total_pressure(ps1, vf1, ek1, rsh)
+
+            tp2 = GasLaws.total_pressure(ps2, vf2, ek2, rsh)
+
+            y = ek1 - (ek2 - w)
+
+            data = {
+                "v1":v1,
+                "v2":v2,
+                "x":x,
+                "y":y,
+                "d1":d1,
+                "d2":d2,
+                "mf1":mf1,
+                "mf2":mf2,
+                "vf1":vf1,
+                "vf2":vf2,
+                "w":w,
+                "a1":a1,
+                "a2":a2,
+                "rsh":rsh,
+                "ek1":ek1,
+                "ek2":ek2,
+                "ps1":ps1,
+                "ps2":ps2,
+                "tp1":tp1["p2"],
+                "tp2":tp2["p2"]
+            }
+
+            return data
+
+        input_data = {
+            "v1":v1,
+            "a1":a1,
+            "a2":a2,
+            "ps1":ps1,
+            "d1":d1,
+            "rsh":rsh
+        }
+
+        inc = v1 / 10
+
+        if a1 > a2:
+            output_data = equation_solver(_flow_change_of_area, 0.000001, 1000, input_data, v1+inc, inc, 0, v1, None)
+        elif a1 < a2:
+            output_data = equation_solver(_flow_change_of_area, 0.000001, 1000, input_data, v1-inc, inc, 0, None, v1)
+        else:
+            output_data = equation_solver(_flow_change_of_area, 0.000001, 1000, input_data, v1, inc, 0)
+
+        return output_data
 
     def speed_of_sound():
         """
@@ -181,3 +257,40 @@ class GasLaws:
         """
         w = ((p2 * v2) - (p1 * v1)) / (1 - rsh)
 
+    def total_pressure(p1, v1, w, rsh):
+        """
+
+        """
+        def _total_pressure(p1, v1, w, rsh, x):
+            """
+
+            """
+            v2 = ((p1/x)*(v1**rsh))**(1/rsh)
+
+            _w = ((p1*v1) - (x*v2)) / (1 - rsh)
+
+            y = w - _w
+
+            data = {
+                "p1":p1,
+                "p2":x,
+                "v1":v1,
+                "v2":v2,
+                "w":w,
+                "rsh":rsh,
+                "x":x,
+                "y":y
+            }
+
+            return data
+
+        data = {
+            "p1":p1,
+            "v1":v1,
+            "w":w,
+            "rsh":rsh
+        }
+
+        data = equation_solver(_total_pressure, 0.000001, 1000, data, data["p1"], data["p1"]/10)
+
+        return data
