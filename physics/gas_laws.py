@@ -161,7 +161,56 @@ class GasLaws:
         """
 
         """
-        pass
+        def _flow_from_static_conditions(tt, pt, dt, rsh, v, x):
+            """
+
+            """
+            print(f'tt {tt} pt {pt} dt {dt} rsh {rsh} v {v} x {x}')
+            mf1 = dt
+
+            vf1 = 1
+
+            ek = 0.5 * mf1 * (v**2)
+
+            vf2 = ((pt/x) * (vf1**rsh))**(1/rsh)
+
+            w = ((pt * vf1) - (x * vf2)) / (1 - rsh)
+
+            y = ek + w
+
+            ps = x
+
+            ts = tt * ((ps/pt)**((rsh-1)/rsh))
+
+            ds = dt * (ps/pt)**(1/rsh)
+
+            data = {
+                "tt":tt,
+                "pt":pt,
+                "dt":dt,
+                "rsh":rsh,
+                "v":v,
+                "x":x,
+                "y":y,
+                "ps":ps,
+                "ts":ts,
+                "ds":ds
+            }
+
+            return data
+
+        data = {
+            "tt":tt,
+            "pt":pt,
+            "dt":dt,
+            "rsh":rsh,
+            "v":v
+        }
+
+        data = equation_solver(_flow_from_static_conditions, 0.000001, 1000, data, pt, pt / 10, 0, None)
+
+        return data
+
 
     def flow_change_of_area(a1, a2, v1, ps1, d1, rsh):
         """
@@ -185,14 +234,18 @@ class GasLaws:
 
             mf2 = x * d2 * a2
 
-            ek2 = 0.5 * mf2 * (x**2)
-
             ps2 = ps1 * (vf1/vf2)**rsh
 
             w = ((ps2 * vf2) - (ps1 * vf1)) / (1-rsh)
-            #w = ((ps1 * vf1) - (ps2 - vf2)) / (1-rsh)
 
-            v2 = ((2 * (ek1 - w))/ mf2)**0.5
+            if a1 > a2:
+                ek2 = ek1 + abs(w)
+            elif a2 < a2:
+                ek2 = ek1 - abs(w)
+            else:
+                ek2 = ek1 - abs(w)
+
+            v2 = ((2 * (ek1 + w))/ mf2)**0.5
 
             tp1 = GasLaws.total_pressure(ps1, vf1, ek1, rsh)
 
@@ -236,12 +289,12 @@ class GasLaws:
 
         inc = v1 / 10
 
-        if a1 > a2:
-            output_data = equation_solver(_flow_change_of_area, 0.000001, 1000, input_data, v1+inc, inc, 0, v1, None)
-        elif a1 < a2:
-            output_data = equation_solver(_flow_change_of_area, 0.000001, 1000, input_data, v1-inc, inc, 0, None, v1)
-        else:
-            output_data = equation_solver(_flow_change_of_area, 0.000001, 1000, input_data, v1, inc, 0)
+        #if a1 > a2:
+        #    output_data = equation_solver(_flow_change_of_area, 0.000001, 1000, input_data, v1/4, inc, 0, v1, None)
+        #elif a1 < a2:
+        #    output_data = equation_solver(_flow_change_of_area, 0.000001, 1000, input_data, v1/4, inc, 0, None, v1)
+        #else:
+        output_data = equation_solver(_flow_change_of_area, 0.000001, 1000, input_data, v1, inc, 0)
 
         return output_data
 
