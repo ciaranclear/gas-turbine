@@ -113,161 +113,229 @@ class ConvertUnits:
         """
 
         """
-        pass
+        feet_to_meters = 1 / cls.meters_to_feet(1)
+
+        meters = feet * feet_to_meters
+
+        return cls.meters_to_inches(meters)
 
     @classmethod
     def feet_to_centimeters(cls, feet):
         """
 
         """
-        pass
+        feet_to_meters = 1 / cls.meters_to_feet(1)
+
+        meters = feet * feet_to_meters
+
+        return cls.meters_to_centimeters(meters)
 
     @classmethod
     def feet_to_milimeters(cls, feet):
         """
 
         """
-        pass
+        feet_to_meters = 1 / cls.meters_to_feet(1)
+
+        meters = feet * feet_to_meters
+
+        return cls.meters_to_milimeters(meters)
 
     @classmethod
     def inches_to_meters(cls, inches):
         """
 
         """
-        pass
+        inches_to_meters = 1 / cls.meters_to_inches(1)
+
+        meters = inches * inches_to_meters
+
+        return cls.meters_to_inches(meters)
 
     @classmethod
     def inches_to_feet(cls, inches):
         """
 
         """
-        pass
+        inches_to_meters = 1 / cls.meters_to_inches(1)
+
+        meters = inches * inches_to_meters
+
+        return cls.meters_to_feet(meters)
 
     @classmethod
     def inches_to_milimeters(cls, inches):
         """
 
         """
-        pass
+        inches_to_meters = 1 / cls.meters_to_inches(1)
+
+        meters = inches * inches_to_meters
+
+        return cls.meters_to_milimeters(meters)
 
     @classmethod
     def milimeters_to_meters(cls, milimeters):
         """
 
         """
-        pass
+        milimeters_to_meters = 1 / cls.meters_to_milimeters(1)
+
+        return milimeters * milimeters_to_meters
 
     @classmethod
     def milimeters_to_feet(cls, milimeters):
         """
 
         """
-        pass
+        milimeters_to_meters = 1 / cls.meters_to_milimeters(1)
+
+        meters = milimeters * milimeters_to_meters
+
+        return cls.meters_to_feet(meters)
 
     @classmethod
     def milimeters_to_inches(cls, milimeters):
         """
 
         """
-        pass
+        milimeters_to_meters = 1 / cls.meters_to_milimeters(1)
+
+        meters = milimeters * milimeters_to_meters
+
+        return cls.meters_to_inches(meter)
 
     @classmethod
     def meters_square_to_feet_square(cls, meters_square):
         """
 
         """
-        pass
+        return meters_square * cls.METERS_SQUARE_TO_FEET_SQUARE
 
     @classmethod
     def meters_square_to_inches_square(cls, meters_square):
         """
 
         """
-        pass
+        return meters_square * cls.METERS_SQUARE_TO_INCHES_SQUARE
 
     @classmethod
     def meters_square_to_centimeters_square(cls, meters_square):
         """
 
         """
-        pass
+        return meters_square * cls.METERS_SQUARE_TO_CENTIMETERS_SQUARE
 
     @classmethod
     def meters_square_to_milimeters_square(cls, meters_square):
         """
 
         """
-        pass
+        return meters_square * cls.METERS_SQUARE_TO_MILIMETERS_SQUARE
 
     @classmethod
     def feet_square_to_meters_square(cls, feet_square):
         """
 
         """
-        pass
+        feet_square_to_meters_square = 1 / cls.meters_square_to_feet_square(1)
+
+        return feet_square * feet_square_to_meters_square
 
     @classmethod
     def feet_square_to_inches_square(cls, feet_square):
         """
 
         """
-        pass
+        feet_square_to_meters_square = 1 / cls.meters_square_to_feet_square(1)
+
+        meters_square = feet_square * feet_square_to_meters_square
+
+        return cls.meters_square_to_inches_square(meters_square)
 
     @classmethod
     def feet_square_to_centimeters_square(cls, feet_square):
         """
 
         """
-        pass
+        feet_square_to_meters_square = 1 / cls.meters_square_to_feet_square(1)
+
+        meters_square = feet_square * feet_square_to_meters_square
+
+        return cls.meters_square_to_centimeters_square(meters_square)
 
     @classmethod
     def feet_square_to_milimeters_square(cls, feet_square):
         """
 
         """
-        pass
+        feet_square_to_meters_square = 1 / cls.meters_square_to_feet_square(1)
+
+        meters_square = feet_square * feet_square_to_meters_square
+
+        return cls.meters_square_to_milimeters_square(meters_square)
 
     @classmethod
     def inches_square_to_meters_square(cls, inches_square):
         """
 
         """
-        pass
+        inches_square_to_meters_square = 1 / cls.meters_square_to_inches_square(1)
+
+        return inches_square * inches_square_to_meters_square
 
     @classmethod
     def inches_square_to_feet_square(cls, inches_square):
         """
 
         """
-        pass
+        inches_square_to_meters_square = 1 / cls.meters_square_to_inches_square(1)
+
+        meters_square = inches_square * inches_square_to_meters_square
+
+        return cls.meters_square_to_feet_square(meters_Square)
 
     @classmethod
     def inches_square_to_milimeters_square(cls, inches_square):
         """
 
         """
-        pass
+        inches_square_to_meters_square = 1 / cls.meters_square_to_inches_square(1)
+
+        meters_square = inches_square * inches_square_to_meters_square
+
+        return cls.meters_square_to_milimters_square(meters_Square)
 
     @classmethod
     def milimeters_square_to_meters_square(cls, milimeters_square):
         """
 
         """
-        pass
+        milimeters_square_to_meters_square = 1 / cls.meters_square_to_milimeters_square(1)
+
+        return milimeters_square * milimeters_square_to_meters_square
 
     @classmethod
     def milimeters_square_to_feet_square(cls, milimeters_square):
         """
 
         """
-        pass
+        milimeters_square_to_meters_square = 1 / cls.meters_square_to_milimeters_square(1)
+
+        meters_square = milimeters_square * milimeters_square_to_meters_square
+
+        return cls.meters_square_to_feet_square(meters_square)
 
     @classmethod
     def milimeters_square_to_inches_square(cls, milimeters_square):
         """
 
         """
-        pass
+        milimeters_square_to_meters_square = 1 / cls.meters_square_to_milimeters_square(1)
+
+        meters_square = milimeters_square * milimeters_square_to_meters_square
+
+        return cls.meters_square_to_inches_square(meters_square)
 
     @classmethod
     def kilograms_to_pounds(cls, kilograms):
@@ -352,6 +420,8 @@ class ConvertUnits:
 
         """
         pass
+
+    ################
 
     @classmethod
     def meters_cubed_to_feet_cubed(cls, meters_cubed):
@@ -493,6 +563,8 @@ class ConvertUnits:
         """
         pass
 
+    ################
+
     @classmethod
     def kelvin_to_celcius(cls, kelvin):
         """
@@ -576,6 +648,9 @@ class ConvertUnits:
 
         """
         pass
+
+    ################
+
     @classmethod
     def pascals_to_psi(cls, pascals):
         """
@@ -617,6 +692,8 @@ class ConvertUnits:
 
         """
         pass
+
+    ################
 
     @classmethod
     def degrees_to_radians(cls, degrees):
