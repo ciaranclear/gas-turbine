@@ -207,7 +207,7 @@ class GasLaws:
             "v":v
         }
 
-        data = equation_solver(_flow_from_static_conditions, 0.000001, 1000, data, pt, pt / 10, 0, None)
+        data = equation_solver(_flow_from_static_conditions, 0.000001, 1000, data, pt, pt / 100, max_lower_bound=0, max_upper_bound=None)
 
         return data
 

@@ -25,6 +25,8 @@ class EquationSolver:
         """
 
         """
+        #max_lower_bound = 0
+        print(f'y {y} max_lower_bound {max_lower_bound} max_upper_bound {max_upper_bound}')
         self.fn = fn
         self.max_error = max_error
         self.max_tries = max_tries
@@ -34,8 +36,8 @@ class EquationSolver:
         self.y = y
         self.max_lower_bound = max_lower_bound
         self.max_upper_bound = max_upper_bound
-        self.lower_bound = None
-        self.upper_bound = None
+        self.lower_bound = max_lower_bound
+        self.upper_bound = max_upper_bound
         self.prev_x = None
         self.curr_x = None
         self.prev_y = None
@@ -49,10 +51,18 @@ class EquationSolver:
         """
 
         """
-        if self.lower_bound and self.upper_bound:
-            return f"TRIES {self.tries} MODE {self.mode} INC {self.inc:.9f} PREV_X {self.prev_x:.4f} CURR_X {self.curr_x:.4f} PREV_Y {self.prev_y:.4f} CURR_Y {self.curr_y:.4f} Y {self.y:.4f} ERROR {abs(self.y - self.curr_y):.9f} LOWER_BOUND {self.lower_bound:.4f} UPPER_BOUND {self.upper_bound:.4f}"
+        lower = self.lower_bound
+        upper = self.upper_bound
+
+        if self.lower_bound == None:
+            lower = 'None'
+        if self.upper_bound == None:
+            upper = 'None'
+
+        if self.lower_bound or self.upper_bound:
+            return f"TRIES {self.tries} MODE {self.mode} INC {self.inc:.9f} PREV_X {self.prev_x:.4f} CURR_X {self.curr_x:.4f} PREV_Y {self.prev_y:.4f} CURR_Y {self.curr_y:.4f} Y {self.y:.4f} ERROR {abs(self.y - self.curr_y):.9f} LOWER_BOUND {lower} UPPER_BOUND {upper}"
         else:
-            return f"TRIES {self.tries} MODE {self.mode} INC {self.inc:.9f} PREV_X {self.prev_x:.4f} CURR_X {self.curr_x:.4f} PREV_Y {self.prev_y:.4f} CURR_Y {self.curr_y:.4f} Y {self.y:.4f} ERROR {abs(self.y - self.curr_y):.9f}"
+            return f"TRIES {self.tries} MODE {self.mode} INC {self.inc:.9f} PREV_X {self.prev_x:.4f} CURR_X {self.curr_x:.4f} PREV_Y {self.prev_y:.4f} CURR_Y {self.curr_y:.4f} Y {self.y:.4f} ERROR {abs(self.y - self.curr_y):.9f} LOWER_BOUND {lower} UPPER_BOUND {upper}"
 
     def solve(self):
         """
