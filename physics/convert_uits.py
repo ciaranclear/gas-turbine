@@ -53,633 +53,741 @@ circle
 
 class ConvertUnits:
 
-    METERS_TO_FEET
-    METERS_TO_INCHES
-    METERS_TO_CENTIMETERS
-    METERS_TO_MILIMETERS
-    KILOGRAMS_TO_POUNDS
-    KILOGRAMS_TO_GRAMS
-    KILOGRAMS_TO_OUNCE
-    METERS_CUBED_TO_FEET_CUBED
-    METERS_CUBED_TO_INCHES_CUBED
-    METERS_CUBED_TO_CENTIMETERS_CUBED
-    METERS_CUBED_TO_MILIMETERS_CUBED
-    PASCALS_TO_PSI
+    METERS_TO_FEET = 3.2808399
+    METERS_TO_INCHES = 39.3700787
+    METERS_TO_CENTIMETERS = 100.0
+    METERS_TO_MILIMETERS = 1000.0
+    KILOGRAMS_TO_POUNDS = 2.20462262
+    KILOGRAMS_TO_GRAMS = 1000.0
+    KILOGRAMS_TO_OUNCE = 35.2739619
+    METERS_SQUARE_TO_FEET_SQUARE = 10.7639104
+    METERS_SQUARE_TO_INCHES_SQUARE = 1550.0031000062
+    METERS_SQUARE_TO_CENTIMETERS_SQUARE = 10000.0
+    METERS_SQUARE_TO_MILIMETERS_SQUARE = 1000000.0
+    METERS_CUBED_TO_FEET_CUBED = 35.3146667
+    METERS_CUBED_TO_INCHES_CUBED = 61023.7441
+    METERS_CUBED_TO_CENTIMETERS_CUBED = 1000000.0
+    METERS_CUBED_TO_MILIMETERS_CUBED = 1000000000.0
+    PASCALS_TO_PSI = 0.00014504
+    PASCALS_TO_BAR = 0.00001
 
-    def meters_to_feet():
+    @classmethod
+    def meters_to_feet(cls, meters):
         """
 
         """
-        pass
+        return meters * cls.METERS_TO_FEET
 
-    def meters_to_inches():
+    @classmethod
+    def meters_to_inches(cls, meters):
         """
 
         """
-        pass
+        return meters * cls.METERS_TO_INCHES
 
-    def meters_to_centimeters():
+    @classmethod
+    def meters_to_centimeters(cls, meters):
         """
 
         """
-        pass
+        return meters * cls.METERS_TO_CENTIMETERS
 
-    def meters_to_milimeters():
+    @classmethod
+    def meters_to_milimeters(cls, meters):
         """
 
         """
-        pass
+        return meters * cls.METERS_TO_MILIMETERS
 
-    def feet_to_meters():
+    @classmethod
+    def feet_to_meters(cls, feet):
         """
 
         """
-        pass
+        c = 1 / cls.meters_to_feet(1)
+
+        return feet * c
 
-    def feet_to_inches():
+    @classmethod
+    def feet_to_inches(cls, feet):
         """
 
         """
         pass
 
-    def feet_to_centimeters():
+    @classmethod
+    def feet_to_centimeters(cls, feet):
         """
 
         """
         pass
 
-    def feet_to_milimeters():
+    @classmethod
+    def feet_to_milimeters(cls, feet):
         """
 
         """
         pass
 
-    def inches_to_meters():
+    @classmethod
+    def inches_to_meters(cls, inches):
         """
 
         """
         pass
 
-    def inches_to_feet():
+    @classmethod
+    def inches_to_feet(cls, inches):
         """
 
         """
         pass
 
-    def inches_to_milimeters():
+    @classmethod
+    def inches_to_milimeters(cls, inches):
         """
 
         """
         pass
 
-    def milimeters_to_meters():
+    @classmethod
+    def milimeters_to_meters(cls, milimeters):
         """
 
         """
         pass
 
-    def milimeters_to_feet():
+    @classmethod
+    def milimeters_to_feet(cls, milimeters):
         """
 
         """
         pass
 
-    def milimeters_to_inches():
+    @classmethod
+    def milimeters_to_inches(cls, milimeters):
         """
 
         """
         pass
 
-
-    def meters_square_to_feet_square():
+    @classmethod
+    def meters_square_to_feet_square(cls, meters_square):
         """
 
         """
         pass
 
-    def meters_square_to_inches_square():
+    @classmethod
+    def meters_square_to_inches_square(cls, meters_square):
         """
 
         """
         pass
 
-    def meters_square_to_centimeters_square():
+    @classmethod
+    def meters_square_to_centimeters_square(cls, meters_square):
         """
 
         """
         pass
 
-    def meters_square_to_milimeters_square():
+    @classmethod
+    def meters_square_to_milimeters_square(cls, meters_square):
         """
 
         """
         pass
 
-    def feet_square_to_meters_square():
+    @classmethod
+    def feet_square_to_meters_square(cls, feet_square):
         """
 
         """
         pass
 
-    def feet_square_to_inches_square():
+    @classmethod
+    def feet_square_to_inches_square(cls, feet_square):
         """
 
         """
         pass
 
-    def feet_square_to_centimeters_square():
+    @classmethod
+    def feet_square_to_centimeters_square(cls, feet_square):
         """
 
         """
         pass
 
-    def feet_square_to_milimeters_square():
+    @classmethod
+    def feet_square_to_milimeters_square(cls, feet_square):
         """
 
         """
         pass
 
-    def inches_square_to_meters_square():
+    @classmethod
+    def inches_square_to_meters_square(cls, inches_square):
         """
 
         """
         pass
 
-    def inches_square_to_feet_square():
+    @classmethod
+    def inches_square_to_feet_square(cls, inches_square):
         """
 
         """
         pass
 
-    def inches_square_to_milimeters_square():
+    @classmethod
+    def inches_square_to_milimeters_square(cls, inches_square):
         """
 
         """
         pass
 
-    def milimeters_square_to_meters_square():
+    @classmethod
+    def milimeters_square_to_meters_square(cls, milimeters_square):
         """
 
         """
         pass
 
-    def milimeters_square_to_feet_square():
+    @classmethod
+    def milimeters_square_to_feet_square(cls, milimeters_square):
         """
 
         """
         pass
 
-    def milimeters_square_to_inches_square():
+    @classmethod
+    def milimeters_square_to_inches_square(cls, milimeters_square):
         """
 
         """
         pass
 
-    def kilograms_to_pounds():
+    @classmethod
+    def kilograms_to_pounds(cls, kilograms):
         """
 
         """
         pass
 
-    def kilograms_to_ounces():
+    @classmethod
+    def kilograms_to_ounces(cls, kilograms):
         """
 
         """
         pass
 
-    def kilograms_to_grams():
+    @classmethod
+    def kilograms_to_grams(cls, kilograms):
         """
 
         """
         pass
 
-    def pounds_to_kilograms():
+    @classmethod
+    def pounds_to_kilograms(cls, pounds):
         """
 
         """
         pass
 
-    def pounds_to_ounces():
+    @classmethod
+    def pounds_to_ounces(cls, pounds):
         """
 
         """
         pass
 
-    def pounds_to_grams():
+    @classmethod
+    def pounds_to_grams(cls, pounds):
         """
 
         """
         pass
 
-    def ounces_to_kilograms():
+    @classmethod
+    def ounces_to_kilograms(cls, ounces):
         """
 
         """
         pass
 
-    def ounces_to_pounds():
+    @classmethod
+    def ounces_to_pounds(cls, ounces):
         """
 
         """
         pass
 
-    def ounces_to_grams():
+    @classmethod
+    def ounces_to_grams(cls, ounces):
         """
 
         """
         pass
 
-    def grams_to_kilograms():
+    @classmethod
+    def grams_to_kilograms(cls, grams):
         """
 
         """
         pass
 
-    def grams_to_pounds():
+    @classmethod
+    def grams_to_pounds(cls, grams):
         """
 
         """
         pass
 
-    def grams_to_ounces():
+    @classmethod
+    def grams_to_ounces(cls, grams):
         """
 
         """
         pass
 
-    def meters_cubed_to_feet_cubed():
+    @classmethod
+    def meters_cubed_to_feet_cubed(cls, meters_cubed):
         """
 
         """
         pass
 
-    def meters_cubed_to_inches_cubed():
+    @classmethod
+    def meters_cubed_to_inches_cubed(cls, meters_cubed):
         """
 
         """
         pass
 
-    def meters_cubed_to_centimeters_cubed():
+    @classmethod
+    def meters_cubed_to_centimeters_cubed(cls, meters_cubed):
         """
 
         """
         pass
 
-    def meters_cubed_to_milimeters_cubed():
+    @classmethod
+    def meters_cubed_to_milimeters_cubed(cls, meters_cubed):
         """
 
         """
         pass
 
-    def feet_cubed_to_meters_cubed():
+    @classmethod
+    def feet_cubed_to_meters_cubed(cls, feet_cubed):
         """
 
         """
         pass
 
-    def feet_cubed_to_inches_cubed():
+    @classmethod
+    def feet_cubed_to_inches_cubed(cls, feet_cubed):
         """
 
         """
         pass
 
-    def feet_cubed_to_centimeters_cubed():
+    @classmethod
+    def feet_cubed_to_centimeters_cubed(cls, feet_cubed):
         """
 
         """
         pass
 
-    def feet_cubed_to_milimeters_cubed():
+    @classmethod
+    def feet_cubed_to_milimeters_cubed(cls, feet_cubed):
         """
 
         """
         pass
 
-    def inches_cubed_to_meters_cubed():
+    @classmethod
+    def inches_cubed_to_meters_cubed(cls, inches_cubed):
         """
 
         """
         pass
 
-    def inches_cubed_to_feet_cubed():
+    @classmethod
+    def inches_cubed_to_feet_cubed(cls, inches_cubed):
         """
 
         """
         pass
 
-    def inches_cubed_to_centimeters_cubed():
+    @classmethod
+    def inches_cubed_to_centimeters_cubed(cls, inches_cubed):
         """
 
         """
         pass
 
-    def inches_cubed_to_milimeters_cubed():
+    @classmethod
+    def inches_cubed_to_milimeters_cubed(cls, inches_cubed):
         """
 
         """
         pass
 
-    def centimeters_cubed_to_meters_cubed():
+    @classmethod
+    def centimeters_cubed_to_meters_cubed(cls, centimeters_cubed):
         """
 
         """
         pass
 
-    def centimeters_cubed_to_feet_cubed():
+    @classmethod
+    def centimeters_cubed_to_feet_cubed(cls, centimeters_cubed):
         """
 
         """
         pass
 
-    def centimeters_cubed_to_inches_cubed():
+    @classmethod
+    def centimeters_cubed_to_inches_cubed(cls, centimeters_cubed):
         """
 
         """
         pass
 
-    def centimeters_cubed_to_milimeters_cubed():
+    @classmethod
+    def centimeters_cubed_to_milimeters_cubed(cls, centimeters_cubed):
         """
 
         """
         pass
 
-    def milimeters_cubed_to_meters_cubed():
+    @classmethod
+    def milimeters_cubed_to_meters_cubed(cls, milimeters_cubed):
         """
 
         """
         pass
 
-    def milimeters_cubed_to_feet_cubed():
+    @classmethod
+    def milimeters_cubed_to_feet_cubed(cls, milimeters_cubed):
         """
 
         """
         pass
 
-    def milimeters_cubed_to_inches_cubed():
+    @classmethod
+    def milimeters_cubed_to_inches_cubed(cls, milimeters_cubed):
         """
 
         """
         pass
 
-    def milimeters_cubed_to_centimeters_cubed():
+    @classmethod
+    def milimeters_cubed_to_centimeters_cubed(cls, milimeters_cubed):
         """
 
         """
         pass
 
-    def kelvin_to_celcius():
+    @classmethod
+    def kelvin_to_celcius(cls, kelvin):
         """
 
         """
         pass
 
-    def kelvin_to_rankine():
+    @classmethod
+    def kelvin_to_rankine(cls, kelvin):
         """
 
         """
         pass
 
-    def kelvin_to_farenheit():
+    @classmethod
+    def kelvin_to_farenheit(cls, kelvin):
         """
 
         """
         pass
 
-    def celcius_to_kelvin():
+    @classmethod
+    def celcius_to_kelvin(cls, celcius):
         """
 
         """
         pass
 
-    def celcius_to_rankine():
+    @classmethod
+    def celcius_to_rankine(cls, celcius):
         """
 
         """
         pass
 
-    def celcius_to_farenheit():
+    @classmethod
+    def celcius_to_farenheit(cls, celcius):
         """
 
         """
         pass
 
-    def rankine_to_kelvin():
+    @classmethod
+    def rankine_to_kelvin(cls, rankine):
         """
 
         """
         pass
 
-    def rankine_to_celcius():
+    @classmethod
+    def rankine_to_celcius(cls, rankine):
         """
 
         """
         pass
 
-    def rankine_to_farenheit():
+    @classmethod
+    def rankine_to_farenheit(cls, rankine):
         """
 
         """
         pass
 
-    def farenheit_to_kelvin():
+    @classmethod
+    def farenheit_to_kelvin(cls, farenheit):
         """
 
         """
         pass
 
-    def farenheit_to_celcius():
+    @classmethod
+    def farenheit_to_celcius(cls, farenheit):
         """
 
         """
         pass
 
-    def farenheit_to_rankine():
+    @classmethod
+    def farenheit_to_rankine(cls, farenheit):
         """
 
         """
         pass
-
-    def pascals_to_psi():
+    @classmethod
+    def pascals_to_psi(cls, pascals):
         """
 
         """
         pass
 
-    def pascals_to_bar():
+    @classmethod
+    def pascals_to_bar(cls, pascals):
         """
 
         """
         pass
 
-    def psi_to_pascals():
+    @classmethod
+    def psi_to_pascals(cls, psi):
         """
 
         """
         pass
 
-    def psi_to_bar():
+    @classmethod
+    def psi_to_bar(cls, psi):
         """
 
         """
         pass
 
-    def bar_to_pascals():
+    @classmethod
+    def bar_to_pascals(cls, bar):
         """
 
         """
         pass
 
-    def bar_to_psi():
+    @classmethod
+    def bar_to_psi(cls, bar):
         """
 
         """
         pass
 
-    def degrees_to_radians():
+    @classmethod
+    def degrees_to_radians(cls, degrees):
         """
 
         """
         pass
 
-    def radians_to_degrees():
+    @classmethod
+    def radians_to_degrees(cls, radians):
         """
 
         """
         pass
 
-    def degrees_per_second_to_rpm():
+    @classmethod
+    def degrees_per_second_to_rpm(cls, degrees_per_second):
         """
 
         """
         pass
 
-    def degrees_per_second_to_rps():
+    @classmethod
+    def degrees_per_second_to_rps(cls, degrees_per_second):
         """
 
         """
         pass
 
-    def rpm_to_degrees_per_second():
+    @classmethod
+    def rpm_to_degrees_per_second(cls, rpm):
         """
 
         """
         pass
 
-    def rps_to_degrees_per_second():
+    @classmethod
+    def rps_to_degrees_per_second(cls, rps):
         """
 
         """
         pass
 
-    def rpm_to_degrees_per_minute():
+    @classmethod
+    def rpm_to_degrees_per_minute(cls, rpm):
         """
 
         """
         pass
 
-    def rps_to_degrees_per_minute():
+    @classmethod
+    def rps_to_degrees_per_minute(cls, rps):
         """
 
         """
         pass
 
-    def rpm_to_radians_per_minute():
+    @classmethod
+    def rpm_to_radians_per_minute(cls, rpm):
         """
 
         """
         pass
 
-    def rpm_to_radians_per_second():
+    @classmethod
+    def rpm_to_radians_per_second(cls, rpm):
         """
 
         """
         pass
 
-    def rps_to_radians_per_minute():
+    @classmethod
+    def rps_to_radians_per_minute(cls, rps):
         """
 
         """
         pass
 
-    def rps_to_radians_per_second():
+    @classmethod
+    def rps_to_radians_per_second(cls, rps):
         """
 
         """
         pass
 
-    def circumferance_to_diameter():
+    @classmethod
+    def circumferance_to_diameter(cls, circumferance):
         """
 
         """
         pass
 
-    def circumferance_to_radius():
+    @classmethod
+    def circumferance_to_radius(cls, circumferance):
         """
 
         """
         pass
 
-    def circumferance_to_area():
+    @classmethod
+    def circumferance_to_area(cls, circumferance):
         """
 
         """
         pass
 
-    def diameter_to_circumferance():
+    @classmethod
+    def diameter_to_circumferance(cls, diameter):
         """
 
         """
         pass
 
-    def diameter_to_radius():
+    @classmethod
+    def diameter_to_radius(cls, diameter):
         """
 
         """
         pass
 
-    def diameter_to_area():
+    @classmethod
+    def diameter_to_area(cls, diameter):
         """
 
         """
         pass
 
-    def radius_to_circumferance():
+    @classmethod
+    def radius_to_circumferance(cls, radius):
         """
 
         """
         pass
 
-    def radius_to_diameter():
+    @classmethod
+    def radius_to_diameter(cls, radius):
         """
 
         """
         pass
 
-    def radius_to_area():
+    @classmethod
+    def radius_to_area(cls, radius):
         """
 
         """
         pass
 
-    def area_to_circumferance():
+    @classmethod
+    def area_to_circumferance(cls, area):
         """
 
         """
         pass
 
-    def area_to_diameter():
+    @classmethod
+    def area_to_diameter(cls, area):
         """
 
         """
         pass
 
-    def area_to_radius():
+    @classmethod
+    def area_to_radius(cls, area):
         """
 
         """
         pass
 
-    def sector_area():
+    @classmethod
+    def sector_area(cls, radius, radians):
         """
 
         """
