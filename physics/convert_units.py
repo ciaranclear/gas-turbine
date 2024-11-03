@@ -742,42 +742,54 @@ class ConvertUnits:
         """
 
         """
-        pass
+        return pascals * cls.PASCALS_TO_PSI
 
     @classmethod
     def pascals_to_bar(cls, pascals):
         """
 
         """
-        pass
+        return pascals * cls.PASCALS_TO_BAR
 
     @classmethod
     def psi_to_pascals(cls, psi):
         """
 
         """
-        pass
+        psi_to_pascals = 1 / cls.pascals_to_ps(1)
+
+        return psi * psi_to_pascals
 
     @classmethod
     def psi_to_bar(cls, psi):
         """
 
         """
-        pass
+        psi_to_pascals = 1 / cls.pascals_to_psi(1)
+
+        pascals = psi * psi_to_pascals
+
+        return cls.pascals_to_bar(pascals)
 
     @classmethod
     def bar_to_pascals(cls, bar):
         """
 
         """
-        pass
+        bar_to_pascals = 1 / cls.pascals_to_bar(1)
+
+        return bar * bar_to_pascals
 
     @classmethod
     def bar_to_psi(cls, bar):
         """
 
         """
-        pass
+        bar_to_pascals = 1 / cls.pascals_to_bar(1)
+
+        pascals = bar * bar_to_pascals
+
+        return cls.pascals_to_psi(pascals)
 
     ################
 
