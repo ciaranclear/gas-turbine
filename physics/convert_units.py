@@ -656,84 +656,84 @@ class ConvertUnits:
         """
 
         """
-        pass
+        return kelvin - 273.15
 
     @classmethod
     def kelvin_to_rankine(cls, kelvin):
         """
 
         """
-        pass
+        return kelvin * (9/5)
 
     @classmethod
     def kelvin_to_farenheit(cls, kelvin):
         """
 
         """
-        pass
+        return 1.8 * (kelvin - 273.15) + 32
 
     @classmethod
     def celcius_to_kelvin(cls, celcius):
         """
 
         """
-        pass
+        return celcius + 273.15
 
     @classmethod
     def celcius_to_rankine(cls, celcius):
         """
 
         """
-        pass
+        return celcius * (9/5) + 491.67
 
     @classmethod
     def celcius_to_farenheit(cls, celcius):
         """
 
         """
-        pass
+        return (celcius * (9/5)) + 32
 
     @classmethod
     def rankine_to_kelvin(cls, rankine):
         """
 
         """
-        pass
+        return ((rankine - 491.67) / 1.8) + 273.15
 
     @classmethod
     def rankine_to_celcius(cls, rankine):
         """
 
         """
-        pass
+        return (rankine - 491.67) / 1.8
 
     @classmethod
     def rankine_to_farenheit(cls, rankine):
         """
 
         """
-        pass
+        return rankine - 491.67
 
     @classmethod
     def farenheit_to_kelvin(cls, farenheit):
         """
 
         """
-        pass
+        return ((farenheit - 32) / 1.8) + 273.15
 
     @classmethod
     def farenheit_to_celcius(cls, farenheit):
         """
 
         """
-        pass
+        return (farenheit - 32) * 5/9
 
     @classmethod
     def farenheit_to_rankine(cls, farenheit):
         """
 
         """
-        pass
+        return farenheit + 491.67
 
     ################
 
