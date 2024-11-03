@@ -342,84 +342,114 @@ class ConvertUnits:
         """
 
         """
-        pass
+        return kilograms * cls.KILOGRAMS_TO_POUNDS
 
     @classmethod
     def kilograms_to_ounces(cls, kilograms):
         """
 
         """
-        pass
+        return kilograms * cls.KILOGRAMS_TO_OUNCES
 
     @classmethod
     def kilograms_to_grams(cls, kilograms):
         """
 
         """
-        pass
+        return kilograms * cls.KILOGRAMS_TO_GRAMS
 
     @classmethod
     def pounds_to_kilograms(cls, pounds):
         """
 
         """
-        pass
+        pounds_to_kilograms = 1 / cls.kilograms_to_pounds(1)
+
+        return pounds * pounds_to_kilograms
 
     @classmethod
     def pounds_to_ounces(cls, pounds):
         """
 
         """
-        pass
+        pounds_to_kilograms = 1 / cls.kilograms_to_pounds(1)
+
+        kilograms = pounds * pounds_to_kilograms
+
+        return cls.kilograms_to_ounces(kilograms)
 
     @classmethod
     def pounds_to_grams(cls, pounds):
         """
 
         """
-        pass
+        pounds_to_kilograms = 1 / cls.kilograms_to_pounds(1)
+
+        kilograms = pounds * pounds_to_kilograms
+
+        return cls.kilograms_to_grams(kilograms)
 
     @classmethod
     def ounces_to_kilograms(cls, ounces):
         """
 
         """
-        pass
+        ounces_to_kilograms = 1 / cls.kilograms_to_ounces(1)
+
+        return ounces * ounces_to_kilograms
 
     @classmethod
     def ounces_to_pounds(cls, ounces):
         """
 
         """
-        pass
+        ounces_to_kilograms = 1 / cls.kilograms_to_ounces(1)
+
+        kilograms = ounces * ounces_to_kilograms
+
+        return cls.kilograms_to_pounds(kilograms)
 
     @classmethod
     def ounces_to_grams(cls, ounces):
         """
 
         """
-        pass
+        ounces_to_kilograms = 1 / cls.kilograms_to_ounces(1)
+
+        kilograms = ounces * ounces_to_kilograms
+
+        return cls.kilograms_to_grams(kilograms)
 
     @classmethod
     def grams_to_kilograms(cls, grams):
         """
 
         """
-        pass
+        grams_to_kilograms = 1 / cls.kilograms_to_grams(1)
+
+        return grams * grams_to_kilograms
 
     @classmethod
     def grams_to_pounds(cls, grams):
         """
 
         """
-        pass
+        grams_to_kilograms = 1 / cls.kilograms_to_grams(1)
+
+        kilograms = grams * grams_to_kilograms
+
+        return cls.kilograms_to_pounds(kilograms)
 
     @classmethod
     def grams_to_ounces(cls, grams):
         """
 
         """
-        pass
+        grams_to_kilograms = 1 / cls.kilograms_to_grams(1)
+
+        kilograms = grams * grams_to_kilograms
+
+        return cls.kilograms_to_ounces(kilograms)
 
     ################
 
@@ -428,140 +458,196 @@ class ConvertUnits:
         """
 
         """
-        pass
+        return meters_cubed * cls.METERS_CUBED_TO_FEET_CUBED
 
     @classmethod
     def meters_cubed_to_inches_cubed(cls, meters_cubed):
         """
 
         """
-        pass
+        return meters_cubed * cls.METERS_CUBED_TO_INCHES_CUBED
 
     @classmethod
     def meters_cubed_to_centimeters_cubed(cls, meters_cubed):
         """
 
         """
-        pass
+        return meters_cubed * cls.METERS_CUBED_TO_CENTIMETERS_CUBED
 
     @classmethod
     def meters_cubed_to_milimeters_cubed(cls, meters_cubed):
         """
 
         """
-        pass
+        return meters_cubed * cls.METERS_CUBED_TO_MILIMETERS_CUBED
 
     @classmethod
     def feet_cubed_to_meters_cubed(cls, feet_cubed):
         """
 
         """
-        pass
+        feet_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_feet_cubed(1)
+
+        return feet_cubed * feet_cubed_to_meters_cubed
 
     @classmethod
     def feet_cubed_to_inches_cubed(cls, feet_cubed):
         """
 
         """
-        pass
+        feet_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_feet_cubed(1)
+
+        meters_cubed = feet_cubed * feet_cubed_to_meters_cubed
+
+        return cls.meters_cubed_to_inches_cubed(meters_cubed)
 
     @classmethod
     def feet_cubed_to_centimeters_cubed(cls, feet_cubed):
         """
 
         """
-        pass
+        feet_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_feet_cubed(1)
+
+        meters_cubed = feet_cubed * feet_cubed_to_meters_cubed
+
+        return cls.meters_cubed_to_centimeters_cubed(meters_cubed)
 
     @classmethod
     def feet_cubed_to_milimeters_cubed(cls, feet_cubed):
         """
 
         """
-        pass
+        feet_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_feet_cubed(1)
+
+        meters_cubed = feet_cubed * feet_cubed_to_meters_cubed
+
+        return cls.meters_cubed_to_milimeters_cubed(meters_cubed)
 
     @classmethod
     def inches_cubed_to_meters_cubed(cls, inches_cubed):
         """
 
         """
-        pass
+        inches_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_inches_cubed(1)
+
+        return inches_cubed * inches_cubed_to_meters_cubed
 
     @classmethod
     def inches_cubed_to_feet_cubed(cls, inches_cubed):
         """
 
         """
-        pass
+        inches_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_inches_cubed(1)
+
+        meters_cubed = inches_cubed * inches_cubed_to_meters_cubed
+
+        return cls.meters_cubed_to_feet_cubed(meters_cubed)
 
     @classmethod
     def inches_cubed_to_centimeters_cubed(cls, inches_cubed):
         """
 
         """
-        pass
+        inches_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_inches_cubed(1)
+
+        meters_cubed = inches_cubed * inches_cubed_to_meters_cubed
+
+        return cls.meters_cubed_to_centimeters_cubed(meters_cubed)
 
     @classmethod
     def inches_cubed_to_milimeters_cubed(cls, inches_cubed):
         """
 
         """
-        pass
+        inches_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_inches_cubed(1)
+
+        meters_cubed = inches_cubed * inches_cubed_to_meters_cubed
+
+        return cls.meters_cubed_to_milimeters_cubed(meters_cubed)
 
     @classmethod
     def centimeters_cubed_to_meters_cubed(cls, centimeters_cubed):
         """
 
         """
-        pass
+        centimeters_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_centimeters_cubed(1)
+
+        return centimeters_cubed * centimeters_cubed_to_meters_cubed
 
     @classmethod
     def centimeters_cubed_to_feet_cubed(cls, centimeters_cubed):
         """
 
         """
-        pass
+        centimeters_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_centimeters_cubed(1)
+
+        meters_cubed = centimeters_cubed * centimeters_cubed_to_meters_cubed
+
+        return cls.meters_cubed_to_feet_cubed(meters_cubed)
 
     @classmethod
     def centimeters_cubed_to_inches_cubed(cls, centimeters_cubed):
         """
 
         """
-        pass
+        centimeters_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_centimeters_cubed(1)
+
+        meters_cubed = centimeters_cubed * centimeters_cubed_to_meters_cubed
+
+        return cls.meters_cubed_to_inches_cubed(meters_cubed)
 
     @classmethod
     def centimeters_cubed_to_milimeters_cubed(cls, centimeters_cubed):
         """
 
         """
-        pass
+        centimeters_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_centimeters_cubed(1)
+
+        meters_cubed = centimeters_cubed * centimeters_cubed_to_milimeters_cubed
+
+        return cls.meters_cubed_to_milimeters_cubed(meters_cubed)
 
     @classmethod
     def milimeters_cubed_to_meters_cubed(cls, milimeters_cubed):
         """
 
         """
-        pass
+        milimeters_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_milimeters_cubed(1)
+
+        return milimeters_cubed * milimeters_cubed_to_meters_cubed
 
     @classmethod
     def milimeters_cubed_to_feet_cubed(cls, milimeters_cubed):
         """
 
         """
-        pass
+        milimeters_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_milimeters_cubed(1)
+
+        meters_cubed = milimeters_cubed * milimeters_cubed_to_meters_cubed
+
+        return cls.meters_cubed_to_feet_cubed(meters_cubed)
 
     @classmethod
     def milimeters_cubed_to_inches_cubed(cls, milimeters_cubed):
         """
 
         """
-        pass
+        milimeters_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_milimeters_cubed(1)
+
+        meters_cubed = milimeters_cubed * milimeters_cubed_to_meters_cubed
+
+        return cls.meters_cubed_to_inches_cubed(meters_cubed)
 
     @classmethod
     def milimeters_cubed_to_centimeters_cubed(cls, milimeters_cubed):
         """
 
         """
-        pass
+        milimeters_cubed_to_meters_cubed = 1 / cls.meters_cubed_to_milimeters_cubed(1)
+
+        meters_cubed = milimeters_cubed * milimeters_cubed_to_meters_cubed
+
+        return cls.meters_cubed_to_milimeters_cubed(meters_cubed)
 
     ################
 
