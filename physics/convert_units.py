@@ -798,172 +798,178 @@ class ConvertUnits:
         """
 
         """
-        pass
+        return math.radians(degrees)
 
     @classmethod
     def radians_to_degrees(cls, radians):
         """
 
         """
-        pass
+        return math.degrees(radians)
 
     @classmethod
     def degrees_per_second_to_rpm(cls, degrees_per_second):
         """
 
         """
-        pass
+        rps = degrees_per_second / 360.0
+
+        rpm = rps * 60
+
+        return rpm
 
     @classmethod
     def degrees_per_second_to_rps(cls, degrees_per_second):
         """
 
         """
-        pass
+        rps = degrees_per_second / 360.0
+
+        return rps
 
     @classmethod
     def rpm_to_degrees_per_second(cls, rpm):
         """
 
         """
-        pass
+        return rpm * 6.0
 
     @classmethod
     def rps_to_degrees_per_second(cls, rps):
         """
 
         """
-        pass
+        return rps * 360.0
 
     @classmethod
     def rpm_to_degrees_per_minute(cls, rpm):
         """
 
         """
-        pass
+        return rpm * 360.0
 
     @classmethod
     def rps_to_degrees_per_minute(cls, rps):
         """
 
         """
-        pass
+        return rps * 60.0 * 360.0
 
     @classmethod
     def rpm_to_radians_per_minute(cls, rpm):
         """
 
         """
-        pass
+        return rpm * 2 * math.pi
 
     @classmethod
     def rpm_to_radians_per_second(cls, rpm):
         """
 
         """
-        pass
+        return (rpm / 60.0) * 2 * math.pi
 
     @classmethod
     def rps_to_radians_per_minute(cls, rps):
         """
 
         """
-        pass
+        return rps * 60.0 * 2 * math.pi
 
     @classmethod
     def rps_to_radians_per_second(cls, rps):
         """
 
         """
-        pass
+        return rps * 2 * math.pi
 
     @classmethod
     def circumferance_to_diameter(cls, circumferance):
         """
 
         """
-        pass
+        return circumferance / math.pi
 
     @classmethod
     def circumferance_to_radius(cls, circumferance):
         """
 
         """
-        pass
+        return circumferance / (math.pi * 2)
 
     @classmethod
     def circumferance_to_area(cls, circumferance):
         """
 
         """
-        pass
+        return (circumferance**2) / (math.pi * 4)
 
     @classmethod
     def diameter_to_circumferance(cls, diameter):
         """
 
         """
-        pass
+        return diameter * math.pi
 
     @classmethod
     def diameter_to_radius(cls, diameter):
         """
 
         """
-        pass
+        return diameter / 2.0
 
     @classmethod
     def diameter_to_area(cls, diameter):
         """
 
         """
-        pass
+        return math.pi * ((diameter / 2.0)**2)
 
     @classmethod
     def radius_to_circumferance(cls, radius):
         """
 
         """
-        pass
+        return radius * 2 * math.pi
 
     @classmethod
     def radius_to_diameter(cls, radius):
         """
 
         """
-        pass
+        return radius * 2.0
 
     @classmethod
     def radius_to_area(cls, radius):
         """
 
         """
-        pass
+        return math.pi * (radius**2)
 
     @classmethod
     def area_to_circumferance(cls, area):
         """
 
         """
-        pass
+        return (math.pi * 4 * area)**0.5
 
     @classmethod
     def area_to_diameter(cls, area):
         """
 
         """
-        pass
+        return ((4 * area) / math.pi)**0.5
 
     @classmethod
     def area_to_radius(cls, area):
         """
 
         """
-        pass
+        return (((4 * area) / math.pi)**0.5) / 2.0
 
     @classmethod
     def sector_area(cls, radius, radians):
         """
 
         """
-        pass
+        return (math.pi * (radius**2)) * (radians / (2 * math.pi))
