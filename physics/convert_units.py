@@ -49,6 +49,7 @@ circle
 	area
         sector area
 """
+import math
 
 
 class ConvertUnits:
