@@ -1,4 +1,4 @@
-
+from gas_laws import GasLaws
 
 
 class RotorStage:
@@ -51,6 +51,7 @@ class RotorStage:
     self.rin_effective_area = None
     self.rout_effective_area = None
     self.angle_of_attack = None
+    self.work = None
     self.rsh = None
 
     def __init__(self, a1, rotor_rpm, arin, arout, number_of_blades, rin_radius, rout_radius, rin_width, rout_width, ps, ds, ts, rsh):
@@ -89,6 +90,7 @@ class RotorStage:
         self._v6_total_conditions()
         self._vinaxial()
         self._voutaxial()
+        self._work_done()
 
     def rotor_data(self):
         """
@@ -187,6 +189,12 @@ class RotorStage:
         pass
 
     def _voutaxial(self):
+        """
+
+        """
+        pass
+
+    def _work_done(self):
         """
 
         """
