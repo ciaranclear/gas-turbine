@@ -131,6 +131,7 @@ class RotorStage:
         self._v2_velocity()
         self._calculate_a3()
         self._calculate_a1()
+        self._calculate_a2()
         self._v3_velocity()
         self._angle_of_attack()
         self._normal_rin_area()
@@ -141,16 +142,14 @@ class RotorStage:
         self._v5_velocity()
         self._normal_rout_area()
         self._actual_rout_area()
-        return
         self._v4_total_conditions()
         self._calculate_a6()
-        """
         self._voutaxial()
-        self._calculate_a4()
         self._v6_velocity()
+        self._calculate_a4()
+        self._calculate_a5()
         self._v6_total_conditions()
         self._work_done()
-        """
 
     def rotor_data(self):
         """
@@ -227,26 +226,48 @@ class RotorStage:
         data = GasLaws.total_conditions_from_dynamic_conditions(self.rsh, self.v1_velocity, self.v1_ps, self.v1_ds, self.v1_ts)
         print("V1 DATA")
         pprint(data)
+        self.v1_pt = data['pt']
+        self.v1_dt = data['dt']
+        self.v1_tt = data['tt']
 
     def _v3_total_conditions(self):
         """
 
         """
-        pass
+        data = GasLaws.total_conditions_from_dynamic_conditions(self.rsh, self.v3_velocity, self.v1_ps, self.v1_ds, self.v1_ts)
+        self.v3_ps = data['ps']
+        self.v3_pt = data['pt']
+        self.v3_ds = data['ds']
+        self.v3_dt = data['dt']
+        self.v3_ts = data['ts']
+        self.v3_tt = data['tt']
 
     def _v4_total_conditions(self):
         """
 
         """
         # flow_change_of_area(a1, a2, v1, ps1, d1, rsh)
-        data = GasLaws.flow_change_of_area(self.ain_effective, self.aout_actual, self.v3_velocity, self.v3_ps, self.v3_ds, self.rsh)
+        data = GasLaws.flow_change_of_area(self.ain_effective, self.aout_actual, self.v3_velocity, self.v3_ps, self.v3_ds, self.rsh, self.v3_ts)
         pprint(data)
+        self.v4_velocity = data['v2']
+        self.v4_ps = data['ps2']
+        self.v4_pt = data['pt2']
+        self.v4_ds = data['ds2']
+        self.v4_dt = data['dt2']
+        self.v4_ts = data['ts2']
+        self.v4_tt = data['tt2']
 
     def _v6_total_conditions(self):
         """
 
         """
-        pass
+        data = GasLaws.total_conditions_from_dynamic_conditions(self.rsh, self.v6_velocity, self.v4_ps, self.v4_ds, self.v4_ts)
+        self.v6_ps = data['ps']
+        self.v6_pt = data['pt']
+        self.v6_ds = data['ds']
+        self.v6_dt = data['dt']
+        self.v6_ts = data['ts']
+        self.v6_tt = data['tt']
 
     def _rotor_blade_spacing(self):
         """
@@ -313,7 +334,7 @@ class RotorStage:
         """
 
         """
-        pass
+        self.v6_velocity = ((self.v4_velocity**2) + (self.v5_velocity**2) - (2 * self.v4_velocity * self.v5_velocity * math.cos(math.radians(self.a6))))**0.5
 
     def _calculate_a1(self):
         """
@@ -347,19 +368,23 @@ class RotorStage:
         """
         use arout, routaxial, v5 velocity to solve for a4
         """
-        pass
+        print(f"V4 {self.v4_velocity} V5 {self.v5_velocity} V6 {self.v6_velocity}")
+        print((self.v4_velocity**2) - (self.v5_velocity**2) - (self.v6_velocity**2))
+        print((-2 * self.v4_velocity * self.v6_velocity))
+        print(( (self.v5_velocity**2) - (self.v4_velocity**2) - (self.v6_velocity**2) ) / (-2 * self.v4_velocity * self.v5_velocity))
+        self.a4 = math.degrees(math.acos(( (self.v4_velocity**2) - (self.v5_velocity**2) - (self.v6_velocity**2) ) / (-2 * self.v5_velocity * self.v6_velocity)))
 
     def _calculate_a5(self):
         """
         use a4, arout to solve for a5
         """
-        pass
+        self.a5 = math.degrees(math.acos(( (self.v5_velocity**2) - (self.v4_velocity**2) - (self.v6_velocity**2) ) / (-2 * self.v4_velocity * self.v5_velocity)))
 
     def _calculate_a6(self):
         """
         use arout to solve for a6
         """
-        pass
+        self.a6 = 90 - self.arout
 
     def _angle_of_attack(self):
         """

@@ -18,7 +18,7 @@ if __name__ == "__main__":
     arout = 30			# degrees
     number_of_blades = 100	# integer
     rotor_rpm = 7000		# rotations per second
-    velocity = 622		# feet per second
+    velocity = 650		# feet per second
     ps = 14.7			# static pressure psi
     ds = 0.0765			# static density pounds per cubic feet
     ts = 273			# static temperature kelvin
