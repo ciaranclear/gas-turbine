@@ -757,7 +757,7 @@ class ConvertUnits:
         """
 
         """
-        psi_to_pascals = 1 / cls.pascals_to_ps(1)
+        psi_to_pascals = 1 / cls.pascals_to_psi(1)
 
         return psi * psi_to_pascals
 

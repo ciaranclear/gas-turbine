@@ -103,20 +103,22 @@ class GasLaws:
         """
 
         """
-        def _total_conditions_from_dynamic_conditions(rsh, v, ps, x, ds, ts):
+        def _total_conditions_from_dynamic_conditions(rsh, v, ps, x, ds, ts, vs):
             """
 
             """
             pt = x
 
+            vs = vs or 1
+
             mf = v * ds
 
             ek = 0.5 * mf * (v**2)
 
-            vx = GasLaws.volume_from_pressure(1, ps, px, rsh)
-
-            w = GasLaws.work_done_by_change_of_volume(ps, px, 1, vx, rsh)
-
+            vx = GasLaws.volume_from_pressure(v, ps, pt, rsh)
+            print(f"ps {ps} pt {pt} vx {vx} rsh {rsh}")
+            w = abs(GasLaws.work_done_by_change_of_volume(ps, pt, v, vx, rsh))
+            print(f"ek {ek} w {w}")
             y = ek - w
 
             data = {
@@ -125,7 +127,7 @@ class GasLaws:
                 "ps":ps,
                 "pt":pt,
                 "ds":ds,
-                "dt":dt,
+                "dt":None,
                 "y":y
             }
 
@@ -138,24 +140,44 @@ class GasLaws:
             if vs:
                 vt = GasLaws.volume_from_pressure(vs, ps, pt, rsh)
 
-                data["ps"] = ps
-                data["pt"] = pt
+                data["vs"] = vs
+                data["vt"] = vt
+                data["dt"] = ds * vs / vt
 
             return data
 
-        data = {
-            "rsh":rsh,
-            "v":v,
-            "ps":ps,
-            "ds":ds,
-            "ts":ts,
-            "vs":vs
-        }
+        if v != 0:
 
-        #equation_solver(fn, max_error, max_tries, kwargs, start_x=1, start_inc=1, y=0, max_lower_bound=None, max_upper_bound=None)
-        data = equation_solver(_total_conditions_from_dynamic_conditions, 0.000001, 1000, data, data["p1"], data["p1"]/10)
+            data = {
+                "rsh":rsh,
+                "v":v,
+                "ps":ps,
+                "ds":ds,
+                "ts":ts,
+                "vs":vs
+            }
 
-        return data
+            #equation_solver(fn, max_error, max_tries, kwargs, start_x=1, start_inc=1, y=0, max_lower_bound=None, max_upper_bound=None)
+            data = equation_solver(_total_conditions_from_dynamic_conditions, 0.000001, 1000, data, data["ps"], data["ps"]/10, 0, data["ps"])
+
+            return data
+
+        elif v == 0:
+
+            data = {
+                "rsh":rsh,
+                "v":v,
+                "ps":ps,
+                "pt":ps,
+                "ds":ds,
+                "dt":ds,
+                "ts":ts,
+                "tt":ts,
+                "vs":vs,
+                "vt":vs
+            }
+
+            return data
 
     def dynamic_conditions_from_total_conditions(rsh, tt, pt, vt, dt, v):
         """
@@ -309,6 +331,8 @@ class GasLaws:
 
         """
         w = ((p2 * v2) - (p1 * v1)) / (1 - rsh)
+
+        return w
 
     def total_pressure(p1, v1, w, rsh):
         """

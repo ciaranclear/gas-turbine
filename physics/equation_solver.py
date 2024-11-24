@@ -178,10 +178,18 @@ class EquationSolver:
         elif self.mode == "DIVERGING":
             self.inc = self.inc * -3/2
 
-        if self.lower_bound != None and self.upper_bound != None:
+        #if self.lower_bound != None and self.upper_bound != None:
+        #    if self.inc > 0 and (self.curr_x + self.inc) > self.upper_bound:
+        #        self.inc = self.upper_bound - self.curr_x
+        #    elif self.inc < 0 and (self.curr_x + self.inc) < self.lower_bound:
+        #        self.inc = self.curr_x - self.lower_bound
+
+        if self.upper_bound != None:
             if self.inc > 0 and (self.curr_x + self.inc) > self.upper_bound:
                 self.inc = self.upper_bound - self.curr_x
-            elif self.inc < 0 and (self.curr_x + self.inc) < self.lower_bound:
+
+        if self.lower_bound != None:
+            if self.inc < 0 and (self.curr_x + self.inc) < self.lower_bound:
                 self.inc = self.curr_x - self.lower_bound
 
     def _set_bounds(self):
